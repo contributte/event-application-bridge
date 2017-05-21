@@ -1,0 +1,84 @@
+{
+  "name": "contributte/event-application-bridge",
+  "description": "Bridge between event dispatcher and nette application",
+  "keywords": ["nette", "event", "dispatcher", "bridge", "application"],
+  "type": "library",
+  "license": ["MIT"],
+  "homepage": "https://github.com/contributte/event-application-bridge",
+  "authors": [
+    {
+      "name": "Milan Felix Sulc",
+      "homepage": "https://jfx.cz"
+    }
+  ],
+  "require": {
+    "php": ">= 5.6",
+    "nette/di": "^2.4.5",
+    "nette/application": "^2.4.0",
+    "contributte/event-dispatcher": "^0.3.0"
+  },
+  "require-dev": {
+    "ninjify/qa": "^0.3.3",
+    "ninjify/nunjuck": "^0.1.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Contributte\\Events\\Bridges\\Application\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Fixtures\\": "tests/fixtures"
+    }
+  },
+  "scripts": {
+    "qa": [
+      "@qa-linter",
+      "@qa-codesniffer"
+    ],
+    "ci": [
+      "@qa-linter",
+      "@qa-codesniffer",
+      "@qa-tester-info",
+      "@qa-tester"
+    ],
+    "qa-codesniffer": [
+      "Ninjify\\Composer\\Script\\CodeSniffer::execute"
+    ],
+    "qa-codefixer": [
+      "Ninjify\\Composer\\Script\\CodeFixer::execute"
+    ],
+    "qa-linter": [
+      "Ninjify\\Composer\\Script\\Linter::execute"
+    ],
+    "qa-tester": [
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini"
+    ],
+    "qa-tester-info": [
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -i"
+    ],
+    "qa-tester-coverage": [
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src"
+    ],
+    "qa-tester-coverage-info": [
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src -i"
+    ]
+  },
+  "extra": {
+    "ninjify": {
+      "qa": {
+        "codesniffer": {
+          "ruleset": "nette",
+          "folders": ["src", "tests"]
+        },
+        "codefixer": {
+          "ruleset": "nette",
+          "folders": ["src", "tests"]
+        },
+        "linter": {
+          "folders": ["src", "tests"]
+        }
+      }
+    }
+  }
+}
