@@ -32,9 +32,9 @@ composer require contributte/event-application-bridge
 
 ## Overview
 
-- [Usage - how to register](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#usage)
-- [Bridge - nette application](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#bridge)
-- [Command - example command](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#subscriber)
+- [Usage - how to register](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#usage-tada)
+- [Bridge - nette application](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#bridge-wrench)
+- [Command - example command](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#subscriber-bulb)
 -----
 
 Thank you for testing, reporting and contributing.

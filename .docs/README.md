@@ -2,9 +2,9 @@
 
 ## Content :gift:
 
-- [Usage - how to register](#usage)
-- [Bridge - nette application](#bridge)
-- [Command - example command](#subscriber)
+- [Usage - how to register](#usage-tada)
+- [Bridge - nette application](#bridge-wrench)
+- [Command - example command](#subscriber-bulb)
 
 ## Usage :tada:
 
