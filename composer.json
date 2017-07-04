@@ -13,13 +13,13 @@
   ],
   "require": {
     "php": ">= 5.6",
-    "nette/di": "^2.4.5",
-    "nette/application": "^2.4.0",
-    "contributte/event-dispatcher": "^0.3.0"
+    "nette/di": "^2.4.8",
+    "nette/application": "^2.4.6."
   },
   "require-dev": {
     "ninjify/qa": "^0.3.3",
-    "ninjify/nunjuck": "^0.1.4"
+    "ninjify/nunjuck": "^0.1.4",
+    "contributte/event-dispatcher": "^0.3.0"
   },
   "autoload": {
     "psr-4": {
@@ -33,52 +33,14 @@
   },
   "scripts": {
     "qa": [
-      "@qa-linter",
-      "@qa-codesniffer"
+      "linter src tests",
+      "codesniffer src tests"
     ],
-    "ci": [
-      "@qa-linter",
-      "@qa-codesniffer",
-      "@qa-tester-info",
-      "@qa-tester"
+    "tester": [
+      "tester -s -p php --colors 1 -c tests/php-unix.ini tests/cases"
     ],
-    "qa-codesniffer": [
-      "Ninjify\\Composer\\Script\\CodeSniffer::execute"
-    ],
-    "qa-codefixer": [
-      "Ninjify\\Composer\\Script\\CodeFixer::execute"
-    ],
-    "qa-linter": [
-      "Ninjify\\Composer\\Script\\Linter::execute"
-    ],
-    "qa-tester": [
-      "nunjuck tests/cases -s -p php -c tests/php-unix.ini"
-    ],
-    "qa-tester-info": [
-      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -i"
-    ],
-    "qa-tester-coverage": [
-      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src"
-    ],
-    "qa-tester-coverage-info": [
-      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src -i"
+    "tester-coverage": [
+      "tester -s -p php --colors 1 -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src tests/cases"
     ]
-  },
-  "extra": {
-    "ninjify": {
-      "qa": {
-        "codesniffer": {
-          "ruleset": "nette",
-          "folders": ["src", "tests"]
-        },
-        "codefixer": {
-          "ruleset": "nette",
-          "folders": ["src", "tests"]
-        },
-        "linter": {
-          "folders": ["src", "tests"]
-        }
-      }
-    }
   }
 }
