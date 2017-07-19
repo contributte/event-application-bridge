@@ -10,8 +10,8 @@
 
 ```yaml
 extensions:
-    events: Contributte\EventDispatcher\DI\EventDispatcherExtensions
-    events2application: Contributte\Application\Bridges\Events\DI\EventDispatcherExtensions
+    events: Contributte\EventDispatcher\DI\EventDispatcherExtension
+    events2application: Contributte\Application\Bridges\Events\DI\EventDispatcherExtension
 ```
 
 ## Bridge :wrench:
