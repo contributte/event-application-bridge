@@ -2,7 +2,7 @@
 
 namespace Contributte\Events\Bridges\Application\UI;
 
-use Contributte\Application\Bridges\Events\AbstractApplicationEvent;
+use Contributte\Events\Bridges\Application\AbstractApplicationEvent;
 
 /**
  * @author Milan Felix Sulc <sulcmil@gmail.com>
