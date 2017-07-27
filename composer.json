@@ -17,7 +17,7 @@
     "nette/application": "^2.4.6."
   },
   "require-dev": {
-    "ninjify/qa": "^0.3.3",
+    "ninjify/qa": "^0.4.0",
     "ninjify/nunjuck": "^0.1.4",
     "contributte/event-dispatcher": "^0.3.0"
   },
