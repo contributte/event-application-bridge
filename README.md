@@ -19,7 +19,7 @@ Simple bridge between [`Nette\Application`](https://github.com/nette/application
 ## Install
 
 ```
-composer require contributte/event-application-bridge
+$ composer require contributte/event-application-bridge
 ```
 
 ## Versions
