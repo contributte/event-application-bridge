@@ -8,10 +8,10 @@
 
 ## Usage :tada:
 
-```yaml
+```neon
 extensions:
-    events: Contributte\EventDispatcher\DI\EventDispatcherExtension
-    events2application: Contributte\Events\Bridges\Application\DI\EventApplicationBridgeExtension
+	events: Contributte\EventDispatcher\DI\EventDispatcherExtension
+	events2application: Contributte\Events\Bridges\Application\DI\EventApplicationBridgeExtension
 ```
 
 ## Bridge :wrench:
@@ -58,7 +58,7 @@ final class LogRequestSubscriber implements EventSubscriber
 	 */
 	public function onLog(RequestEvent $event)
 	{
-	    // Do magic..
+		// Do magic..
 	}
 }
 ```

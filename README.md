@@ -18,7 +18,7 @@ Simple bridge between [`Nette\Application`](https://github.com/nette/application
 
 ## Install
 
-```
+```bash
 composer require contributte/event-application-bridge
 ```
 
