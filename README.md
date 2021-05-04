@@ -1,26 +1,25 @@
-# Event Dispatcher > Application Event Bridge :recycle:
+![](https://heatbadger.now.sh/github/readme/contributte/event-application-bridge/?deprecated=1)
 
-Simple bridge between [`Nette\Application`](https://github.com/nette/application/) and [`Contributte\EventDispatcher`](https://github.com/contributte/event-dispatcher).
+<p align=center>
+    <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+    <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+    <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
------
+<p align=center>
+    Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-[![Build Status](https://img.shields.io/travis/contributte/event-application-bridge.svg?style=flat-square)](https://travis-ci.org/contributte/event-application-bridge)
-[![Code coverage](https://img.shields.io/coveralls/contributte/event-application-bridge.svg?style=flat-square)](https://coveralls.io/r/contributte/event-application-bridge)
-[![Licence](https://img.shields.io/packagist/l/contributte/event-application-bridge.svg?style=flat-square)](https://packagist.org/packages/contributte/event-application-bridge)
+## Disclaimer
 
-[![Downloads this Month](https://img.shields.io/packagist/dm/contributte/event-application-bridge.svg?style=flat-square)](https://packagist.org/packages/contributte/event-application-bridge)
-[![Downloads total](https://img.shields.io/packagist/dt/contributte/event-application-bridge.svg?style=flat-square)](https://packagist.org/packages/contributte/event-application-bridge)
-[![Latest stable](https://img.shields.io/packagist/v/contributte/event-application-bridge.svg?style=flat-square)](https://packagist.org/packages/contributte/event-application-bridge)
+| :warning: | This project is no longer being maintained. Please use [contributte/event-dispatcher-extra](https://github.com/contributte/event-dispatcher-extra).
+|---|---|
 
-## Discussion / Help
-
-[![Join the chat](https://img.shields.io/gitter/room/contributte/contributte.svg?style=flat-square)](http://bit.ly/ctteg)
-
-## Install
-
-```bash
-composer require contributte/event-application-bridge
-```
+| Composer | [`contributte/event-application-bridge`](https://packagist.org/packages/contributte/event-application-bridge) |
+|---| --- |
+| Version | ![](https://badgen.net/packagist/v/contributte/event-application-bridge) |
+| PHP | ![](https://badgen.net/packagist/php/contributte/event-application-bridge) |
+| License | ![](https://badgen.net/github/license/contributte/event-application-bridge) |
 
 ## Versions
 
@@ -28,28 +27,75 @@ composer require contributte/event-application-bridge
 |-------------|---------|----------|----------|
 | stable      | `^0.1`  | `master` | `>= 5.6` |
 
-## Overview
+## Documentation
 
-- [Usage - how to register](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#usage-tada)
-- [Bridge - nette application](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#bridge-wrench)
-- [Command - example command](https://github.com/contributte/event-application-bridge/blob/master/.docs/README.md#subscriber-bulb)
+### Usage :tada:
 
-## Maintainers
+```neon
+extensions:
+	events: Contributte\EventDispatcher\DI\EventDispatcherExtension
+	events2application: Contributte\Events\Bridges\Application\DI\EventApplicationBridgeExtension
+```
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/f3l1x">
-            <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=150">
-        </a>
-        </br>
-        <a href="https://github.com/f3l1x">Milan Felix Šulc</a>
-      </td>
-    </tr>
-  <tbody>
-</table>
+### Bridge :wrench:
+
+There are several Nette Application events on which you can listen to.
+
+```php
+use Contributte\Events\Bridges\Application\Event\ApplicationEvents;
+use Contributte\Events\Bridges\Application\Event\ErrorEvent;
+use Contributte\Events\Bridges\Application\Event\PresenterEvent;
+use Contributte\Events\Bridges\Application\Event\RequestEvent;
+use Contributte\Events\Bridges\Application\Event\ResponseEvent;
+use Contributte\Events\Bridges\Application\Event\ShutdownEvent;
+use Contributte\Events\Bridges\Application\Event\StartupEvent;
+```
+
+- `StartupEvent::NAME` && `ApplicationEvents::ON_STARTUP`
+- `ShutdownEvent::NAME` && `ApplicationEvents::ON_SHUTDOWN`
+- `RequestEvent::NAME` && `ApplicationEvents::ON_REQUEST`
+- `PresenterEvent::NAME` && `ApplicationEvents::ON_PRESENTER`
+- `ResponseEvent::NAME` && `ApplicationEvents::ON_RESPONSE`
+- `ErrorEvent::NAME` && `ApplicationEvents::ON_ERROR`
+
+### Subscriber :bulb:
+
+```php
+use Contributte\EventDispatcher\EventSubscriber;
+use Contributte\Events\Bridges\Application\Event\RequestEvent;
+
+final class LogRequestSubscriber implements EventSubscriber
+{
+
+	/**
+	 * @return array
+	 */
+	public static function getSubscribedEvents()
+	{
+		return [RequestEvent::NAME => 'onLog'];
+	}
+
+	/**
+	 * @param RequestEvent $event
+	 * @return void
+	 */
+	public function onLog(RequestEvent $event)
+	{
+		// Do magic..
+	}
+}
+```
+
+
+## Development
+
+This package was maintain by these authors.
+
+<a href="https://github.com/f3l1x">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
 
 -----
 
-Thank you for testing, reporting and contributing.
+Consider to [support](https://contributte.org/partners.html) **contributte** development team.
+Also thank you for being used this package.
