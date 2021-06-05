@@ -1,9 +1,17 @@
 {
   "name": "contributte/event-application-bridge",
   "description": "Bridge between event dispatcher and nette application",
-  "keywords": ["nette", "event", "dispatcher", "bridge", "application"],
+  "keywords": [
+    "nette",
+    "event",
+    "dispatcher",
+    "bridge",
+    "application"
+  ],
   "type": "library",
-  "license": ["MIT"],
+  "license": [
+    "MIT"
+  ],
   "homepage": "https://github.com/contributte/event-application-bridge",
   "authors": [
     {
