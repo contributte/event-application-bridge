@@ -1,9 +1,17 @@
 {
   "name": "contributte/event-application-bridge",
   "description": "Bridge between event dispatcher and nette application",
-  "keywords": ["nette", "event", "dispatcher", "bridge", "application"],
+  "keywords": [
+    "nette",
+    "event",
+    "dispatcher",
+    "bridge",
+    "application"
+  ],
   "type": "library",
-  "license": ["MIT"],
+  "license": [
+    "MIT"
+  ],
   "homepage": "https://github.com/contributte/event-application-bridge",
   "authors": [
     {
@@ -13,8 +21,11 @@
   ],
   "require": {
     "php": ">= 5.6",
+    "nette/application": "^2.4.6",
+    "nette/caching": "^2.4.0",
+    "nette/component-model": "^2.4.0",
     "nette/di": "^2.4.8",
-    "nette/application": "^2.4.6."
+    "nette/http": "^2.4.8"
   },
   "require-dev": {
     "ninjify/qa": "^0.4.0",
